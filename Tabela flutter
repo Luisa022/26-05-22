@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+Widget myPersonalCard() {
+  return Container(
+      width: 350,
+      margin: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
+      color: Colors.indigo,
+      child: Column(children: [
+        Row(
+          
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+          Image.network(
+              width: 80,
+              "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGh1bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"),
+          Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text('Nome: Luisa'),
+                    Text('Telefone: 11 88888888'),
+                    Text('Email: luisa@email.com'),
+                  ]))
+        ]),
+        const Divider(),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          ElevatedButton(onPressed: () {}, child: const Text('Amigos')),
+          ElevatedButton(onPressed: () {}, child: const Text('Favoritos')),
+          ElevatedButton(onPressed: () {}, child: const Text('Bloqueados')),
+        ])
+      ]));
+}
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: darkBlue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          body: Center(
+              child: Column(children: [
+        myPersonalCard(),
+        myPersonalCard(),
+      ]))),
+    );
+  }
+}
+
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'Hello, World!',
+      style: Theme.of(context).textTheme.headline4,
+    );
+  }
+}
